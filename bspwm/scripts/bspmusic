@@ -6,4 +6,5 @@
 
 bspterm --class 'Music' \
 		  -o initial_window_width=105 -o initial_window_height=22 \
-		  ~/.ncmpcpp/scripts/ncmpcpp-art
+		  ~/.config/ncmpcpp/scripts/ncmpcpp-art
+
