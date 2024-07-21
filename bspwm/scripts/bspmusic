@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+##
+## Run ncmpcpp with alternate config
+
+bspterm --class 'Music' \
+		  -o initial_window_width=105 -o initial_window_height=22 \
+		  ~/.ncmpcpp/scripts/ncmpcpp-art

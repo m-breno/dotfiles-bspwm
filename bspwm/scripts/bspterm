@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+##
+## launch kitty with bspwm config
+
+# bspwm directory
+DIR="$HOME/.config/bspwm"
+CONFIG="$DIR/kitty/kitty.conf"
+
+if [ "$1" == "--float" ]; then
+	kitty --class 'kitty-float' -c "$CONFIG"
+elif [ "$1" == "--full" ]; then
+	kitty --class 'kitty-fullscreen' -c "$CONFIG" \
+			  --start-as=fullscreen \
+			  -o window_padding_width=30 \
+			  -o background_opacity=0.95 -o font_size=20
+else
+	kitty -c "$CONFIG" ${@}
+fi
