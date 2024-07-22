@@ -87,7 +87,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 
 # Music control
 XF86Audio{Next,Prev,Play,Stop}
-	playerctl {next,previous,play-pause,stop}
+	bspmedia {next,previous,play-pause,stop}
 
 # Keyboard Leds
 Scroll_Lock
