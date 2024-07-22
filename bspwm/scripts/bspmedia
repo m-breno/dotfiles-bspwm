@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+ffox_ignore() {
+    FFOX_INSTANCE="$(playerctl --list-all | grep 'firefox')"
+
+    if [[ -z $FFOX_INSTANCE ]]; then
+        echo \"\"
+    else
+        echo "${FFOX_INSTANCE}"
+    fi
+}
+
+PCTL_COMMAND="playerctl --ignore-player $(ffox_ignore)"
+
+play-pause() {
+    ${PCTL_COMMAND} play-pause
+}
+
+next() {
+    ${PCTL_COMMAND} next
+}
+
+previous() {
+    ${PCTL_COMMAND} previous
+}
+
+stop() {
+    ${PCTL_COMMAND} stop
+}
+
+case "$1" in
+    play-pause) $1 ;;
+    next) $1 ;;
+    previous) $1 ;;
+    stop) $1 ;;
+    *) echo "Usage: play_pause,next,previous,stop" && exit 1 ;;
+esac
