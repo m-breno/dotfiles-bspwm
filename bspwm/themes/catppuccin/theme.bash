@@ -5,26 +5,26 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#1D2021'
-foreground='#D4BE98'
-color0='#3C3836'
-color1='#EA6962'
-color2='#A9B665'
-color3='#D8A657'
-color4='#7DAEA3'
-color5='#D3869B'
-color6='#89B482'
-color7='#D4BE98'
-color8='#504945'
-color9='#EA6962'
-color10='#A9B665'
-color11='#D8A657'
-color12='#7DAEA3'
-color13='#D3869B'
-color14='#89B482'
-color15='#DDC7A1'
+background='#1E1E2E'
+foreground='#CDD6F4'
+color0='#45475A'
+color1='#F38BA8'
+color2='#A6E3A1'
+color3='#F9E2AF'
+color4='#89B4FA'
+color5='#F5C2E7'
+color6='#94E2D5'
+color7='#BAC2DE'
+color8='#585B70'
+color9='#F38BA8'
+color10='#A6E3A1'
+color11='#F9E2AF'
+color12='#89B4FA'
+color13='#F5C2E7'
+color14='#94E2D5'
+color15='#A6ADC8'
 
-accent='#D8A657'
+accent='#FAB387'
 light_value='0.05'
 dark_value='0.30'
 
@@ -40,7 +40,7 @@ rofi_font='JetBrains Mono 10'
 rofi_icon='Arc-Circle'
 
 # Terminal
-kitty_theme='Gruvbox Material Dark Hard'
+kitty_theme='Catppuccin-Mocha'
 terminal_font_name='JetBrainsMono Nerd Font'
 terminal_font_size='10'
 
@@ -49,7 +49,7 @@ terminal_font_size='10'
 #geany_font='JetBrainsMono Nerd Font 10'
 
 # Neovim
-nvim_colorscheme='gruvbox-material'
+nvim_colorscheme='catppuccin-mocha'
 
 # Appearance
 gtk_font='Noto Sans 9'

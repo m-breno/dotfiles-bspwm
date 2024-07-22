@@ -22,6 +22,9 @@ super + alt + Return
 alt + F1
 	rofi_launcher
 
+super + d
+    rofi_launcher
+
 # Rofi Run
 alt + F2
 	rofi_runner

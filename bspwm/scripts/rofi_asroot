@@ -4,8 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-STYLE="gruvbox"
-RASI="$DIR/themes/$STYLE/rofi/asroot.rasi"
+RASI="$DIR/themes/current/rofi/asroot.rasi"
 
 # Theme Elements
 prompt='Root'
