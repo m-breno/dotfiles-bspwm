@@ -74,16 +74,16 @@ apply_rofi() {
 
 	# modify rofi scripts
 	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" \
-#		${PATH_BSPWM}/scripts/rofi_askpass \
-#		${PATH_BSPWM}/scripts/rofi_asroot \
-#		${PATH_BSPWM}/scripts/rofi_bluetooth \
-#		${PATH_BSPWM}/scripts/rofi_launcher \
-#		${PATH_BSPWM}/scripts/rofi_music \
-#		${PATH_BSPWM}/scripts/rofi_powermenu \
-#		${PATH_BSPWM}/scripts/rofi_runner \
-#		${PATH_BSPWM}/scripts/rofi_screenshot \
-#		${PATH_BSPWM}/scripts/rofi_themes \
-#		${PATH_BSPWM}/scripts/rofi_windows
+		${PATH_BSPWM}/scripts/rofi_askpass \
+		${PATH_BSPWM}/scripts/rofi_asroot \
+		${PATH_BSPWM}/scripts/rofi_bluetooth \
+		${PATH_BSPWM}/scripts/rofi_launcher \
+		${PATH_BSPWM}/scripts/rofi_music \
+		${PATH_BSPWM}/scripts/rofi_powermenu \
+		${PATH_BSPWM}/scripts/rofi_runner \
+		${PATH_BSPWM}/scripts/rofi_screenshot \
+		${PATH_BSPWM}/scripts/rofi_themes \
+		${PATH_BSPWM}/scripts/rofi_windows
 	
 	# apply default theme fonts
 	sed -i -e "s/font:.*/font: \"$rofi_font\";/g" ${PATH_ROFI}/shared/fonts.rasi

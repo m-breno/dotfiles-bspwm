@@ -4,8 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-STYLE="gruvbox"
-RASI="$DIR/themes/$STYLE/rofi/music.rasi"
+RASI="$DIR/themes/current/rofi/music.rasi"
 
 # Theme Elements
 status="`mpc status`"

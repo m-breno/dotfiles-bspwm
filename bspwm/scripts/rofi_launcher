@@ -4,8 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-STYLE="gruvbox"
-RASI="$DIR/themes/$STYLE/rofi/launcher.rasi"
+RASI="$DIR/themes/current/rofi/launcher.rasi"
 
 # Run
 rofi \

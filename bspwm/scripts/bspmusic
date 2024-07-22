@@ -5,6 +5,6 @@
 ## Run ncmpcpp with alternate config
 
 bspterm --class 'Music' \
-		  -o initial_window_width=105 -o initial_window_height=22 \
+		  -o initial_window_width=96c -o initial_window_height=22c -o remember_window_size=no \
 		  ~/.config/ncmpcpp/scripts/ncmpcpp-art
 
