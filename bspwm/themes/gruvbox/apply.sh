@@ -74,16 +74,16 @@ apply_rofi() {
 
 	# modify rofi scripts
 	sed -i -e "s/STYLE=.*/STYLE=\"$THEME\"/g" \
-#		${PATH_BSPWM}/scripts/rofi_askpass \
-#		${PATH_BSPWM}/scripts/rofi_asroot \
-#		${PATH_BSPWM}/scripts/rofi_bluetooth \
-#		${PATH_BSPWM}/scripts/rofi_launcher \
-#		${PATH_BSPWM}/scripts/rofi_music \
-#		${PATH_BSPWM}/scripts/rofi_powermenu \
-#		${PATH_BSPWM}/scripts/rofi_runner \
-#		${PATH_BSPWM}/scripts/rofi_screenshot \
-#		${PATH_BSPWM}/scripts/rofi_themes \
-#		${PATH_BSPWM}/scripts/rofi_windows
+		${PATH_BSPWM}/scripts/rofi_askpass \
+		${PATH_BSPWM}/scripts/rofi_asroot \
+		${PATH_BSPWM}/scripts/rofi_bluetooth \
+		${PATH_BSPWM}/scripts/rofi_launcher \
+		${PATH_BSPWM}/scripts/rofi_music \
+		${PATH_BSPWM}/scripts/rofi_powermenu \
+		${PATH_BSPWM}/scripts/rofi_runner \
+		${PATH_BSPWM}/scripts/rofi_screenshot \
+		${PATH_BSPWM}/scripts/rofi_themes \
+		${PATH_BSPWM}/scripts/rofi_windows
 	
 	# apply default theme fonts
 	sed -i -e "s/font:.*/font: \"$rofi_font\";/g" ${PATH_ROFI}/shared/fonts.rasi
@@ -116,9 +116,15 @@ apply_netmenu() {
 # Terminal ----------------------------------
 apply_terminal() {
     # kitty : fonts
-    sed -i ${PATH_TERM}/fonts.conf \
-        -e "s/family = .*/family = $terminal_font_name/g" \
-        -e "s/size = .*/size = $terminal_font_size/g"
+
+cat > ${PATH_TERM}/fonts.conf <<- _EOF_
+font_family $terminal_font_name
+font_size $terminal_font_size
+_EOF_
+
+#    sed -i ${PATH_TERM}/fonts.conf \
+#        -e "s/family = .*/family $terminal_font_name/g" \
+#        -e "s/size = .*/size $terminal_font_size/g"
 
 	# kitty : colors
     kitten themes --reload-in=all "${kitty_theme}"
@@ -288,7 +294,7 @@ apply_wallpaper
 apply_rofi
 apply_netmenu
 apply_terminal
-apply_geany
+#apply_geany
 apply_appearance
 apply_dunst
 apply_compositor

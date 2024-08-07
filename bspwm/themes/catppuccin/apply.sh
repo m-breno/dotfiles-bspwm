@@ -116,9 +116,15 @@ apply_netmenu() {
 # Terminal ----------------------------------
 apply_terminal() {
     # kitty : fonts
-    sed -i ${PATH_TERM}/fonts.conf \
-        -e "s/family = .*/family = $terminal_font_name/g" \
-        -e "s/size = .*/size = $terminal_font_size/g"
+
+cat > ${PATH_TERM}/fonts.conf <<- _EOF_
+font_family $terminal_font_name
+font_size $terminal_font_size
+_EOF_
+
+#    sed -i ${PATH_TERM}/fonts.conf \
+#        -e "s/family = .*/family $terminal_font_name/g" \
+#        -e "s/size = .*/size $terminal_font_size/g"
 
 	# kitty : colors
     kitten themes --reload-in=all "${kitty_theme}"
@@ -165,10 +171,10 @@ apply_terminal() {
 #		-e "s/editor_font=.*/editor_font=$geany_font/g"
 #}
 
-# Neovim ------------------------------------
-apply_nvim() {
-    nvim +colorscheme\ ${nvim_colorscheme} +qa
-}
+# Neovim #TODO ------------------------------------
+#apply_nvim() {
+#    nvim +colorscheme\ ${nvim_colorscheme} +qa
+#}
 # Appearance --------------------------------
 apply_appearance() {
 	XFILE="$PATH_BSPWM/xsettingsd"
@@ -288,7 +294,7 @@ apply_wallpaper
 apply_rofi
 apply_netmenu
 apply_terminal
-apply_geany
+#apply_geany
 apply_appearance
 apply_dunst
 apply_compositor

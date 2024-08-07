@@ -26,7 +26,7 @@ gap_size = 0
 separator_color = frame
 sort = yes
 idle_threshold = 120
-font = JetBrainsMono Nerd Font 9
+font = FiraCode Nerd Font 9
 line_height = 1
 markup = full
 format = %s\n%b
@@ -54,18 +54,18 @@ class = Dunst
 
 [urgency_low]
 timeout = 2
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-frame_color = "#FAB387"
+background = "#1D2021"
+foreground = "#D4BE98"
+frame_color = "#D8A657"
 
 [urgency_normal]
 timeout = 5
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-frame_color = "#FAB387"
+background = "#1D2021"
+foreground = "#D4BE98"
+frame_color = "#D8A657"
 
 [urgency_critical]
 timeout = 0
-background = "#1E1E2E"
-foreground = "#F38BA8"
-frame_color = "#F38BA8"
+background = "#1D2021"
+foreground = "#EA6962"
+frame_color = "#EA6962"

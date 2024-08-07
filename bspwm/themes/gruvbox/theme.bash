@@ -33,20 +33,16 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='JetBrainsMono Nerd Font:size=10;3'
+polybar_font='FiraCode Nerd Font:size=10;3'
 
 # Rofi
-rofi_font='JetBrains Mono 10'
+rofi_font='Fira Code 10'
 rofi_icon='Arc-Circle'
 
 # Terminal
 kitty_theme='Gruvbox Material Dark Hard'
-terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
-
-# Geany
-#geany_colors='arc.conf'
-#geany_font='JetBrainsMono Nerd Font 10'
+terminal_font_name='FiraCode Nerd Font'
+terminal_font_size='12'
 
 # Neovim
 nvim_colorscheme='gruvbox-material'
@@ -62,7 +58,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x10'
 dunst_origin='top-right'
-dunst_font='JetBrainsMono Nerd Font 9'
+dunst_font='FiraCode Nerd Font 9'
 dunst_border='2'
 dunst_separator='1'
 

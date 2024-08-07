@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
-ffox_ignore() {
-    FFOX_INSTANCE="$(playerctl --list-all | grep 'firefox')"
+#ffox_ignore() {
+#    FFOX_INSTANCE="$(playerctl --list-all | grep 'firefox')"
+#
+#    if [[ -z $FFOX_INSTANCE ]]; then
+#        echo \"\"
+#    else
+#        echo "${FFOX_INSTANCE}"
+#    fi
+#}
 
-    if [[ -z $FFOX_INSTANCE ]]; then
-        echo \"\"
-    else
-        echo "${FFOX_INSTANCE}"
-    fi
-}
-
-PCTL_COMMAND="playerctl --ignore-player $(ffox_ignore)"
+#PCTL_COMMAND="playerctl --ignore-player $(ffox_ignore)"
+PCTL_COMMAND="playerctl --player=spotify"
 
 play-pause() {
     ${PCTL_COMMAND} play-pause
