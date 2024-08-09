@@ -124,9 +124,11 @@ for i in ${office[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
    
 ## 6 > media (always open media apps on workspace-6)
-declare -a media=(Spotify Audacity Music MPlayer Lxmusic Inkscape Gimp-2.10 obs vlc mpv)
+declare -a media=(Audacity Music MPlayer Lxmusic Inkscape Gimp-2.10 obs vlc mpv)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^6' state=floating follow=on focus=on; done
+
+bspc rule -a Spotify desktop='^6' follow=off
 
 ## 7 > communication (always open communication apps on workspace-7)
 declare -a comm=(discord Thunderbird TelegramDesktop Hexchat)
@@ -148,6 +150,9 @@ declare -a floating=(alacritty-float kitty-float Pcmanfm Thunar Onboard Yad 'Fir
 Viewnior feh Nm-connection-editor calamares Calamares)
 for i in ${floating[@]}; do
    bspc rule -a $i state=floating follow=on focus=on; done
+
+## Picture-in-Picture
+bspc rule -a *:*:"Picture-in-Picture" state=floating sticky=on
 
 bspc rule -a Conky state=floating manage=off
 bspc rule -a stalonetray state=floating manage=off
@@ -189,7 +194,7 @@ xset led 3
 
 # Start bspwm scripts
 #bspbar
-bspcomp
+#bspcomp
 bspdunst
 bspfloat &
 

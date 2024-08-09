@@ -33,15 +33,15 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='FiraCode Nerd Font:size=10;3'
+polybar_font='JetBrainsMono Nerd Font:size=10;3'
 
 # Rofi
-rofi_font='FiraCode Nerd Font'
+rofi_font='JetBrains Mono 10'
 rofi_icon='Papirus-Dark'
 
 # Terminal
 kitty_theme='Catppuccin-Mocha'
-terminal_font_name='FiraCode Nerd Font'
+terminal_font_name='JetBrainsMono Nerd Font'
 terminal_font_size='12'
 
 # Neovim
@@ -58,7 +58,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x10'
 dunst_origin='top-right'
-dunst_font='FiraCode Nerd Font 9'
+dunst_font='JetBrainsMono Nerd Font 9'
 dunst_border='2'
 dunst_separator='1'
 

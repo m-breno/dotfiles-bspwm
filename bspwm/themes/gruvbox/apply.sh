@@ -173,12 +173,12 @@ _EOF_
 
 # Neovim ------------------------------------
 apply_nvim() {
-    nvim +colorscheme\ ${nvim_colorscheme} +qa
+    echo ${nvim_colorscheme} > "$HOME/.local/share/nvim/colorscheme-file"
 }
 # Appearance --------------------------------
 apply_appearance() {
 	XFILE="$PATH_BSPWM/xsettingsd"
-	GTK2FILE="$HOME/.gtkrc-2.0"
+	GTK2FILE="$PATH_CONF/gtk-2.0/gtkrc"
 	GTK3FILE="$PATH_CONF/gtk-3.0/settings.ini"
 
 	# apply gtk theme, icons, cursor & fonts
@@ -294,6 +294,7 @@ apply_wallpaper
 apply_rofi
 apply_netmenu
 apply_terminal
+apply_nvim
 #apply_geany
 apply_appearance
 apply_dunst
