@@ -28,13 +28,6 @@ accent='#FAB387'
 light_value='0.05'
 dark_value='0.30'
 
-# Wallpaper
-wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-wallpaper="$wdir/wallpaper"
-
-# Polybar
-polybar_font='JetBrainsMono Nerd Font:size=10;3'
-
 # Rofi
 rofi_font='JetBrains Mono 10'
 rofi_icon='Papirus-Dark'
@@ -43,9 +36,6 @@ rofi_icon='Papirus-Dark'
 kitty_theme='Catppuccin-Mocha'
 terminal_font_name='JetBrainsMono Nerd Font'
 terminal_font_size='12'
-
-# Neovim
-nvim_colorscheme='catppuccin-mocha'
 
 # Appearance
 gtk_font='Noto Sans 9'
@@ -61,16 +51,6 @@ dunst_origin='top-right'
 dunst_font='JetBrainsMono Nerd Font 9'
 dunst_border='2'
 dunst_separator='1'
-
-# Picom
-picom_backend='glx'
-picom_corner='0'
-picom_shadow_r='14'
-picom_shadow_o='0.30'
-picom_shadow_x='-12'
-picom_shadow_y='-12'
-picom_blur_method='none'
-picom_blur_strength='0'
 
 # Bspwm
 bspwm_fbc="$accent"

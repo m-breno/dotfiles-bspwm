@@ -3,11 +3,11 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
 # bspwm directory
-DIR="$HOME/.config/bspwm"
+THEMEDIR="$HOME/.config/bspwm/themes/.current"
 
 # Launch dunst daemon
-if [[ `pidof dunst` ]]; then
-	pkill dunst
+if [[ $(pidof dunst) ]]; then
+  pkill dunst
 fi
 
-dunst -config "$DIR"/dunstrc &
+dunst -config "$THEMEDIR"/dunstrc &

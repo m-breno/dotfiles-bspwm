@@ -19,15 +19,15 @@ super + alt + Return
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
-alt + F1
-	rofi_launcher
+#alt + F1
+#	rofi_launcher
 
 super + d
     rofi_launcher
 
 # Rofi Run
-alt + F2
-	rofi_runner
+#alt + F2
+#	rofi_runner
 
 # Rofi Menus/Applets
 super + {b,m,n,r,s,t,w,x}
@@ -152,20 +152,20 @@ super + alt + shift + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Expanding windows (emacs)
-super + control + {Left,Right,Up,Down}
-	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+super + control + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # Expanding windows (vim)
 super + control + {h,j,k,l}
-	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # Shrinking windows (emacs)
-super + alt + {Left,Right,Up,Down}
-	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left 20 0,bottom 0 -20,top 0 20,right -20 0}
 
 # Shrinking windows (vim)
 super + alt + {h,j,k,l}
-	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+	bspc node -z {left 20 0,bottom 0 -20,top 0 20,right -20 0}
 
 # Split horizontal, vertical or cancel
 super + {b,v,q}

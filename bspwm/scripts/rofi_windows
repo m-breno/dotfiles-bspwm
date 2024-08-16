@@ -4,9 +4,9 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-RASI="$DIR/themes/current/rofi/windows.rasi"
+RASI="$DIR/themes/.current/rofi/windows.rasi"
 
 # Run
 rofi \
-    -show window \
-	-theme ${RASI}
+  -show window \
+  -theme ${RASI}

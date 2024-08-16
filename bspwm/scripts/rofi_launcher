@@ -4,10 +4,10 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-RASI="$DIR/themes/current/rofi/launcher.rasi"
+RASI="$DIR/themes/.current/rofi/launcher.rasi"
 
 # Run
 rofi \
-    -show drun \
-	-kb-cancel Alt-F1,Escape \
-	-theme ${RASI}
+  -show drun \
+  -kb-cancel Alt-F1,Escape \
+  -theme ${RASI}
