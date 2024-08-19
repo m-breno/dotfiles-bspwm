@@ -29,7 +29,7 @@ light_value='0.05'
 dark_value='0.30'
 
 # Wallpaper
-wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+wdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
@@ -58,7 +58,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x10'
 dunst_origin='top-right'
-dunst_font='FiraCode Nerd Font 9'
+dunst_font='FiraCode Nerd Font 12'
 dunst_border='2'
 dunst_separator='1'
 
