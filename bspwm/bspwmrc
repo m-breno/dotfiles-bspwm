@@ -193,7 +193,8 @@ xfce4-power-manager &
 xsetroot -cursor_name left_ptr
 
 # Restore wallpaper
-feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper"
+#feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper"
+nasa-wallpaper -a &
 
 # Start mpd
 exec mpd &

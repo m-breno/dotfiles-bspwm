@@ -7,6 +7,10 @@ PATH_BSPWM="$HOME/.config/bspwm"
 THEMEDIR="$PATH_BSPWM/themes/$THEME"
 source "$THEMEDIR/theme.bash"
 
+notify() {
+  dunstify -u normal "Applying Style..."
+}
+
 create_file() {
   theme_file="$PATH_BSPWM/themes/.current"
   if [[ -L "$theme_file" ]]; then
@@ -24,6 +28,12 @@ _EOF_
   kitten themes --reload-in=all "$kitty_theme"
 }
 
+gtk() {
+  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
+  gsettings set org.gnome.desktop.interface icon-theme "$icon_theme"
+  gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
+}
+
 #nvim() {
 #  # TODO: nvim
 #  echo $nvim_colorscheme > "$HOME/.local/share/nvim/colorscheme-file"
@@ -33,10 +43,6 @@ first_run() {
   if [[ ! -f "$THEMEDIR/ready" ]]; then
     "$PATH_BSPWM/themes/first-run.sh"
   fi
-}
-
-notify() {
-  dunstify -u normal "Applying Style..."
 }
 
 notify

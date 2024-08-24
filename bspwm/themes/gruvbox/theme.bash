@@ -28,13 +28,6 @@ accent='#D8A657'
 light_value='0.05'
 dark_value='0.30'
 
-# Wallpaper
-wdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-wallpaper="$wdir/wallpaper"
-
-# Polybar
-polybar_font='FiraCode Nerd Font:size=10;3'
-
 # Rofi
 rofi_font='Fira Code 10'
 rofi_icon='Arc-Circle'
@@ -45,11 +38,11 @@ terminal_font_name='FiraCode Nerd Font'
 terminal_font_size='12'
 
 # Neovim
-nvim_colorscheme='gruvbox-material'
+#nvim_colorscheme='gruvbox-material'
 
 # Appearance
-gtk_font='Noto Sans 9'
-gtk_theme='Arc-Dark'
+gtk_font='Inter 9'
+gtk_theme='Materia-dark'
 icon_theme='Papirus-Dark'
 cursor_theme='Qogirr'
 
@@ -58,7 +51,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x10'
 dunst_origin='top-right'
-dunst_font='FiraCode Nerd Font 12'
+dunst_font='FiraCode Nerd Font 9'
 dunst_border='2'
 dunst_separator='1'
 
