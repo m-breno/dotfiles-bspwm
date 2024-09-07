@@ -1,81 +1,22 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## BSPWM config file for Archcraft
-
-## General ---------------------------------------------------#
-
-## Bspwm config directory
+## Envinronment and theme
 BSPDIR="$HOME/.config/bspwm"
 
-## Export bspwm/bin dir to PATH
 export PATH="${PATH}:$BSPDIR/scripts:$BSPDIR/themes/.current/scripts"
+
 export XDG_CURRENT_DESKTOP='bspwm'
 
-## Run java applications without issues
 export _JAVA_AWT_WM_NONREPARENTING=1
-#wmname LG3D
 
 source "${BSPDIR}/themes/.current/theme.bash"
 
-## Current theme ---------------------------------------------#
+## Configuration
+# Workspaces
+monitor="$(xrandr -q | grep -w 'connected' | cut -d' ' -f1)"
+bspc monitor "$monitor" -d 'I' 'II' 'III' 'IV' 'V' 'VI' 'VII' 'VIII'
 
-## Bspwm colors
-bspwm_fbc='#D8A657'
-bspwm_nbc='#1D2021'
-bspwm_abc='#D3869B'
-bspwm_pfc='#A9B665'
-
-## Bspwm appearance
-bspwm_border='2'
-bspwm_gap='10'
-bspwm_sratio='0.50'
-
-## Configurations --------------------------------------------#
-
-## Manage Monitors and Workspaces
-##
-## Default Setup (Set 8 workspaces on each monitor)
-default_workspaces() {
-  for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
-    bspc monitor "$monitor" -d 'I' 'II' 'III' 'IV' 'V' 'VI' 'VII' 'VIII'
-  done
-}
-
-## Two Monitors Setup (Laptop and external monitor, set 4 workspaces on each monitor)
-two_monitors_workspaces() {
-  # change these values according to your system
-  # you can use `xrandr -q` to get the names of monitors
-  INTERNAL_MONITOR="eDP"
-  EXTERNAL_MONITOR="HDMI-A-0"
-  if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
-    bspc monitor "$EXTERNAL_MONITOR" -d '' '' '' ''
-    bspc monitor "$INTERNAL_MONITOR" -d '' '' '' ''
-    bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
-  else
-    bspc monitor "$INTERNAL_MONITOR" -d '' '' '' '' '' '' '' ''
-  fi
-}
-
-## Three Monitors Setup (Laptop and two external monitor, 3-2-3 workspaces)
-three_monitors_workspaces() {
-  # again, change these values accordingly
-  MONITOR_1="eDP"
-  MONITOR_2="HDMI-A-0"
-  MONITOR_3="HDMI-A-1"
-  bspc monitor "$MONITOR_1" -d '' ''
-  bspc monitor "$MONITOR_2" -d '' '' ''
-  bspc monitor "$MONITOR_3" -d '' '' ''
-  bspc wm -O "$MONITOR_2" "$MONITOR_1" "$MONITOR_3"
-}
-
-## Uncomment only one function according to your needs
-default_workspaces
-#two_monitors_workspaces
-#three_monitors_workspaces
-
-## Apply bspwm configurations
+# Apply config
 bspc config border_width "$bspwm_border"
 bspc config window_gap "$bspwm_gap"
 bspc config split_ratio "$bspwm_sratio"
@@ -92,87 +33,61 @@ bspc config single_monocle true
 bspc config focus_follows_pointer true
 bspc config presel_feedback true
 
-## Manage all the unmanaged windows remaining from a previous session.
 bspc wm --adopt-orphans
 
-## Window rules ----------------------------------------------#
+## Winrules
 
-## remove all rules first
+# remove all rules first
 bspc rule -r *:*
 
-## 1 > terminal (always open terminal on workspace-1)
+# 1 - terminal
 bspc rule -a kitty desktop='^1' follow=on focus=on
-bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
-## 2 > web (always open web browser on workspace-2)
+# 2 - web
 bspc rule -a firefox desktop='^2' follow=on focus=on
 bspc rule -a chromium desktop='^2' follow=on focus=on
 
-## 3 > files (always open file manager on workspace-3)
-declare -a files=(Pcmanfm Thunar qBittorrent)
-for i in ${files[@]}; do
-  bspc rule -a $i desktop='^3' follow=on focus=on
+# 3 - files
+bspc rule -a Thunar desktop='^3' follow=on focus=on
+bspc rule -a qBittorrent desktop='^3' follow=on focus=on
+
+# 4 - notes
+bspc rule -a obsidian desktop='^4' follow=on focus=on
+
+# 5 - media
+declare -a media=(Audacity Gimp-2.1 Inkscape Lxmusic Music MPlayer mpv obs Spotify vlc)
+for i in "${media[@]}"; do
+  bspc rule -a "$i" desktop='^5' state=floating follow=on focus=on
 done
 
-## 4 > code (always open editors on workspace-4)
-declare -a code=(Geany VSCodium)
-for i in ${code[@]}; do
-  bspc rule -a $i desktop='^4' follow=on focus=on
-done
-
-## 5 > office and docs (always open office/doc apps on workspace-5)
-declare -a office=(obsidian Gucharmap Atril Evince
-  libreoffice-writer libreoffice-calc libreoffice-impress
-  libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice)
-for i in ${office[@]}; do
-  bspc rule -a $i desktop='^5' follow=on focus=on
-done
-
-## 6 > media (always open media apps on workspace-6)
-declare -a media=(Audacity Music MPlayer Lxmusic Inkscape Gimp-2.10 obs vlc mpv)
-for i in ${media[@]}; do
-  bspc rule -a $i desktop='^6' state=floating follow=on focus=on
-done
-
-bspc rule -a Spotify desktop='^6' follow=off
-
-## 7 > communication (always open communication apps on workspace-7)
+# 6 - communication
 declare -a comm=(discord Thunderbird TelegramDesktop Hexchat)
-for i in ${comm[@]}; do
-  bspc rule -a $i desktop='^7' follow=on focus=on
+for i in "${comm[@]}"; do
+  bspc rule -a "$i" desktop='^6' follow=on focus=on
 done
 
-## 8 > system (always open system apps on workspace-8)
-bspc rule -a 'VirtualBox Manager' desktop='^8' follow=on focus=on
-bspc rule -a GParted desktop='^8' follow=on focus=on
-declare -a settings=(Lxappearance Lxtask Lxrandr Arandr
-  System-config-printer.py Pavucontrol Exo-helper-1
-  Xfce4-power-manager-settings)
-for i in ${settings[@]}; do
-  bspc rule -a $i desktop='^8' state=floating follow=on focus=on
+# 7 - system
+declare -a settings=(GParted VirtualBox Manager Lxappearance Lxtask Lxrandr Arandr Pavucontrol Exo-helper-1 Xfce4-power-manager-settings)
+for i in "${settings[@]}"; do
+  bspc rule -a "$i" desktop='^7' state=floating follow=on focus=on
 done
 
-## Always Floating Apps
-declare -a floating=(alacritty-float kitty-float Pcmanfm Thunar Onboard Yad 'Firefox:Places'
+# Always Float
+declare -a floating=(kitty-float Thunar "Picture-in-Picture" "Firefox:Places" *:*:"Picture-in-Picture"
   Viewnior feh Nm-connection-editor calamares Calamares)
-for i in ${floating[@]}; do
-  bspc rule -a $i state=floating follow=on focus=on
+for i in "${floating[@]}"; do
+  bspc rule -a "$i" state=floating follow=on focus=on
 done
 
-## Firefox
-bspc rule -a *:*:"Picture-in-Picture" state=floating sticky=on
-bspc rule -a firefox:*:"Biblioteca" state=floating
-
-bspc rule -a Conky state=floating manage=off
 bspc rule -a stalonetray state=floating manage=off
 
-## Autostart -------------------------------------------------#
+## Autostart
 
 # Kill if already running
-killall -9 xsettingsd sxhkd dunst ksuperkey xfce4-power-manager bspc
+killall udiskie sxhkd dunst ksuperkey xfce4-power-manager bspc
 
 # Lauch xsettingsd daemon
-xsettingsd --config="$BSPDIR"/xsettingsd &
+#xsettingsd --config="$BSPDIR"/xsettingsd &
 
 # polkit agent
 if [[ ! $(pidof xfce-polkit) ]]; then
@@ -182,28 +97,35 @@ fi
 # Lauch keybindings daemon
 sxhkd -c "$BSPDIR"/sxhkdrc &
 
-# Enable Super Keys For Menu
-#ksuperkey -e 'Super_L=Alt_L|F1' &
-#ksuperkey -e 'Super_R=Alt_L|F1' &
+# Auto-mount USB drives
+udiskie &
 
-# Enable power management
+# Power management
 xfce4-power-manager &
 
 # Fix cursor
 xsetroot -cursor_name left_ptr
 
-# Restore wallpaper
-#feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper"
-nasa-wallpaper -a &
+# XSettings daemon
+killall -HUP xsettingsd
+xsettingsd --config="$BSPDIR"/themes/.current/xsettingsd &
 
-# Start mpd
-exec mpd &
+# Wallpaper
+feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper"
+#nasa-wallpaper -a &
+
+# Blue light filter
+redshift -l -23.81:-45.37
 
 # Turn on keyboard leds
 xset led 3
 
+# Make Caps-Lock behave like esc when released and ctrl when pressed
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+
 # Start bspwm scripts
 #bspbar
 #bspcomp
-bspdunst
+dunst -config "$BSPDIR"/themes/.current/dunstrc &
 bspfloat &

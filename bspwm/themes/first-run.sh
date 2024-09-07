@@ -8,11 +8,7 @@ source ".current/theme.bash"
 
 # Create file to not run this again
 create_file() {
-  if [[ ! -f "$THEMEDIR/ready}" ]]; then
-    touch "$THEMEDIR/ready"
-  else
-    exit 1
-  fi
+  touch "$THEMEDIR/ready"
 }
 
 ## Apply
