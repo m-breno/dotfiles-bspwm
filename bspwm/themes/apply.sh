@@ -28,12 +28,6 @@ _EOF_
   kitten themes --reload-in=all "$kitty_theme"
 }
 
-gtk() {
-  gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-  gsettings set org.gnome.desktop.interface icon-theme "$icon_theme"
-  gsettings set org.gnome.desktop.interface cursor-theme "$cursor_theme"
-}
-
 #nvim() {
 #  # TODO: nvim
 #  echo $nvim_colorscheme > "$HOME/.local/share/nvim/colorscheme-file"
