@@ -73,7 +73,7 @@ for i in "${settings[@]}"; do
 done
 
 # Always Float
-declare -a floating=(kitty-float Thunar "Picture-in-Picture" "Firefox:Places" *:*:"Picture-in-Picture"
+declare -a floating=(kitty-float "Picture-in-Picture" "Firefox:Places" "Firefox:Biblioteca" *:*:"Picture-in-Picture"
   Viewnior feh Nm-connection-editor calamares Calamares)
 for i in "${floating[@]}"; do
   bspc rule -a "$i" state=floating follow=on focus=on
@@ -84,7 +84,7 @@ bspc rule -a stalonetray state=floating manage=off
 ## Autostart
 
 # Kill if already running
-killall udiskie sxhkd dunst ksuperkey xfce4-power-manager bspc
+killall udiskie sxhkd dunst ksuperkey xfce4-power-manager bspc redshift
 
 # Lauch xsettingsd daemon
 #xsettingsd --config="$BSPDIR"/xsettingsd &

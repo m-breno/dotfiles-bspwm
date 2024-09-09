@@ -41,7 +41,7 @@ terminal_font_size='12'
 variant=dark
 gtk_font='Inter 9'
 gtk_theme='Catppuccin-Mocha-Standard-Mauve-Dark'
-icon_theme='Papirus-dark'
+icon_theme='Papirus-Dark'
 cursor_theme='Qogirr'
 
 # Dunst

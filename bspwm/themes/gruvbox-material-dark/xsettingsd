@@ -2,8 +2,8 @@ Net/CursorBlink "1"
 Net/EnableEventSounds "0"
 Gtk/DecorationLayout ":"
 
-Net/ThemeName "Materia-dark"
-Net/IconThemeName "Papirus-dark"
+Net/ThemeName "Gruvbox-Material-Dark"
+Net/IconThemeName "Papirus-Dark"
 Net/CursorThemeName "Qogirr"
 Gtk/CursorThemeName "Qogirr"
 

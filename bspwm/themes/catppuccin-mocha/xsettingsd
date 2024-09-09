@@ -3,7 +3,7 @@ Net/EnableEventSounds "0"
 Gtk/DecorationLayout ":"
 
 Net/ThemeName "Catppuccin-Mocha-Standard-Mauve-Dark"
-Net/IconThemeName "Papirus-dark"
+Net/IconThemeName "Papirus-Dark"
 Net/CursorThemeName "Qogirr"
 Gtk/CursorThemeName "Qogirr"
 
