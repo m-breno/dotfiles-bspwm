@@ -29,7 +29,7 @@ light_value='0.05'
 dark_value='0.30'
 
 # Rofi
-rofi_font='JetBrains Mono 10'
+rofi_font='JetBrainsMono NerdFont 10'
 rofi_icon='Papirus-Dark'
 
 # Terminal
@@ -54,10 +54,10 @@ dunst_border='2'
 dunst_separator='1'
 
 # Bspwm
-bspwm_fbc="$accent"
-bspwm_nbc="$background"
-bspwm_abc="$color5"
-bspwm_pfc="$color2"
+bspwm_focused_bc="$accent"
+bspwm_normal_bc="$background"
+bspwm_active_bc="$color5"
+bspwm_presel_fc="$color2"
 bspwm_border='2'
 bspwm_gap='10'
 bspwm_sratio='0.50'

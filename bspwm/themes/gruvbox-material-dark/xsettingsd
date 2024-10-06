@@ -4,8 +4,6 @@ Gtk/DecorationLayout ":"
 
 Net/ThemeName "Gruvbox-Material-Dark"
 Net/IconThemeName "Papirus-Dark"
-Net/CursorThemeName "Qogirr"
-Gtk/CursorThemeName "Qogirr"
 
 Xft/Antialias "1"
 Xft/DPI "102400"

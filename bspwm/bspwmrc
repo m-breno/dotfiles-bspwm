@@ -6,10 +6,15 @@ BSPDIR="$HOME/.config/bspwm"
 export PATH="${PATH}:$BSPDIR/scripts:$BSPDIR/themes/.current/scripts"
 
 export XDG_CURRENT_DESKTOP='bspwm'
+export EDITOR=nvim
+export VISUAL=$EDITOR
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 source "${BSPDIR}/themes/.current/theme.bash"
+
+# source the colors.
+#. "${HOME}/.cache/wal/colors.sh"
 
 ## Configuration
 # Workspaces
@@ -21,15 +26,20 @@ bspc config border_width "$bspwm_border"
 bspc config window_gap "$bspwm_gap"
 bspc config split_ratio "$bspwm_sratio"
 
-bspc config focused_border_color "$bspwm_fbc"
-bspc config normal_border_color "$bspwm_nbc"
-bspc config active_border_color "$bspwm_abc"
-bspc config presel_feedback_color "$bspwm_pfc"
+# Set the border colors.
+#bspc config normal_border_color "$color1"
+#bspc config active_border_color "$color2"
+#bspc config focused_border_color "$color15"
+#bspc config presel_feedback_color "$color1"
 
-bspc config borderless_monocle true
-bspc config gapless_monocle true
-bspc config paddingless_monocle true
-bspc config single_monocle true
+bspc config normal_border_color "$bspwm_normal_bc"
+bspc config active_border_color "$bspwm_active_bc"
+bspc config focused_border_color "$bspwm_focused_bc"
+bspc config presel_feedback_color "$bspwm_presel_fc"
+
+#bspc config borderless_monocle true
+#bspc config gapless_monocle true
+#bspc config single_monocle false
 bspc config focus_follows_pointer true
 bspc config presel_feedback true
 
@@ -57,7 +67,7 @@ bspc rule -a obsidian desktop='^4' follow=on focus=on
 # 5 - media
 declare -a media=(Audacity Gimp-2.1 Inkscape Lxmusic Music MPlayer mpv obs Spotify vlc)
 for i in "${media[@]}"; do
-  bspc rule -a "$i" desktop='^5' state=floating follow=on focus=on
+  bspc rule -a "$i" desktop='^5' follow=on focus=on
 done
 
 # 6 - communication
@@ -74,7 +84,7 @@ done
 
 # Always Float
 declare -a floating=(kitty-float "Picture-in-Picture" "Firefox:Places" "Firefox:Biblioteca" *:*:"Picture-in-Picture"
-  Viewnior feh Nm-connection-editor calamares Calamares)
+  Viewnior Nm-connection-editor calamares Calamares)
 for i in "${floating[@]}"; do
   bspc rule -a "$i" state=floating follow=on focus=on
 done
@@ -84,7 +94,7 @@ bspc rule -a stalonetray state=floating manage=off
 ## Autostart
 
 # Kill if already running
-killall udiskie sxhkd dunst ksuperkey xfce4-power-manager bspc redshift
+killall udiskie sxhkd dunst ksuperkey xfce4-power-manager bspc || true
 
 # Lauch xsettingsd daemon
 #xsettingsd --config="$BSPDIR"/xsettingsd &
@@ -95,7 +105,7 @@ if [[ ! $(pidof xfce-polkit) ]]; then
 fi
 
 # Lauch keybindings daemon
-sxhkd -c "$BSPDIR"/sxhkdrc &
+sxhkd &
 
 # Auto-mount USB drives
 udiskie &
@@ -104,25 +114,26 @@ udiskie &
 xfce4-power-manager &
 
 # Fix cursor
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # XSettings daemon
 killall -HUP xsettingsd
 xsettingsd --config="$BSPDIR"/themes/.current/xsettingsd &
 
 # Wallpaper
-feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper"
+#wal -R
+feh --no-fehbg --bg-fill "$BSPDIR/themes/.current/wallpaper" &
 #nasa-wallpaper -a &
 
 # Blue light filter
-redshift -l -23.81:-45.37
+redshift -P -l -23.81:-45.37 -t 6500:4000 &
 
 # Turn on keyboard leds
-xset led 3
+xset led 3 &
 
 # Make Caps-Lock behave like esc when released and ctrl when pressed
-setxkbmap -option ctrl:nocaps
-xcape -e 'Control_L=Escape'
+#setxkbmap -option ctrl:nocaps &
+#xcape -e 'Control_L=Escape' &
 
 # Start bspwm scripts
 #bspbar

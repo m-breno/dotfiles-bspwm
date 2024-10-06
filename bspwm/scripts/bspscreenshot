@@ -66,7 +66,7 @@ shotwin() {
 }
 
 shotarea() {
-  cd ${dir} && maim -u -f png -s -b 2 -c ${border},0.25 -l | copy_shot
+  cd ${dir} && maim -u -f png -s -b 2 -l | copy_shot
   notify_view
 }
 

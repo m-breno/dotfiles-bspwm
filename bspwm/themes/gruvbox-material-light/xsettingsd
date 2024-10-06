@@ -4,8 +4,6 @@ Gtk/DecorationLayout ":"
 
 Net/ThemeName "Materia-light"
 Net/IconThemeName "Papirus"
-Net/CursorThemeName "Qogirr"
-Gtk/CursorThemeName "Qogirr"
 
 Xft/Antialias "1"
 Xft/DPI "102400"
